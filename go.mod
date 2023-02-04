@@ -1,4 +1,4 @@
-module github.com/krazt/help
+module github.com/krazt/pls
 
 go 1.20
 

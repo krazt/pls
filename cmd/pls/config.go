@@ -7,7 +7,7 @@ import (
 
 type config struct {
 	openAPIKey string
-	prompt     string
+	input      string
 }
 
 func newConfig(args []string) (config, error) {
@@ -17,12 +17,12 @@ func newConfig(args []string) (config, error) {
 	}
 
 	if len(args) == 0 {
-		return config{}, fmt.Errorf("a prompt must be provided")
+		return config{}, fmt.Errorf("an input must be provided")
 	}
-	prompt := args[0]
+	input := args[0]
 
 	return config{
 		openAPIKey: openAPIKey,
-		prompt:     prompt,
+		input:      input,
 	}, nil
 }
