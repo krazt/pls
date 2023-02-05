@@ -34,14 +34,17 @@ It outputs:
 
 ```text
 Explanation:
-    ls: list files in the current directory
-    -a: list all files, including hidden files
-    
-    |: pipe the output of ls to the input of grep
-    
-    grep: search for a pattern in the input
-    -v: invert the match, i.e. only show lines that do not match the pattern
-    "^\.": the pattern is a regular expression that matches lines that start with a dot
+
+ls: list files in the current directory
+-a: list all files, including hidden files
+
+|: pipe the output of ls to the input of grep
+
+grep: search for a pattern in the input
+-v: invert the match, i.e. only show lines that do not match the pattern
+"^\.": the pattern is a regular expression that matches lines that start with a dot
+
+Command:
 
 ls -a | grep -v "^\."
 
