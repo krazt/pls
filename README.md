@@ -33,8 +33,6 @@ pls "list only hidden files"
 It outputs:
 
 ```text
-ls -a | grep -v "^\."
-
 Explanation:
     ls: list files in the current directory
     -a: list all files, including hidden files
@@ -44,6 +42,8 @@ Explanation:
     grep: search for a pattern in the input
     -v: invert the match, i.e. only show lines that do not match the pattern
     "^\.": the pattern is a regular expression that matches lines that start with a dot
+
+ls -a | grep -v "^\."
 
 Run the command? (y=yes, N=no, e=edit)
 ```
