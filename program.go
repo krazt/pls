@@ -27,7 +27,7 @@ func newProgram(cfg config) *program {
 	}
 }
 
-//go:embed assets/prompt_template.md
+//go:embed assets/templates/prompt.txt
 var promptTemplateStr string
 
 type promptData struct {
