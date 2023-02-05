@@ -34,11 +34,12 @@ Given the user input:
 Available actions:
 
 1. Unknown
-2. Chat
-3. Print something to stdout
-4. Execute a command in the terminal
-5. Generate an image given a text description
-6. Modify an image given a text description
+2. Execute a command in the terminal
+3. Get an answer that should be searched on the web
+4. Chat
+5. Generate text
+6. Generate an image given a text description
+7. Modify an image given a text description
 
 ### Generating the content
 
@@ -46,19 +47,24 @@ Available actions:
 
 The user input is not recognized. The program should print an error message to stderr.
 
-#### Action: Chat
-
-The user wants to have a conversation. The program should generate a response to the user's input as if they were
-having a conversation.
-
-#### Action: Print something to stdout
-
-The user wants to generate some text. The program should generate the text and print it to stdout.
-
 #### Action: Execute a command in the terminal
 
 The user wants to execute a command in the terminal. The program should generate the command and execute it in the
 terminal, asking the user for confirmation before executing it.
+
+#### Action: Get an answer that should be searched on the web
+
+The user wants to get an answer to a question. The program should generate a search query, search the web, and print
+the answer to stdout.
+
+#### Action: Chat
+
+The user wants to have a conversation. The program should generate a response to the user's input as if they were
+having a conversation, printing the response to stdout.
+
+#### Action: Generate text
+
+The user wants to generate some text. The program should generate the text and print it to stdout.
 
 #### Action: Generate an image given a text description
 
