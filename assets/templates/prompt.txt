@@ -17,7 +17,7 @@ Notes:
 ---
 C: linux-amd64; /home/user
 I: "list only hidden files"
-O: ls -a | grep "^\."
+O: ls -a | grep '^\.'
 ---
 C: linux-amd64; /etc
 I: "make a request to google and save to response.txt"
