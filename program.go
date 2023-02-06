@@ -90,7 +90,7 @@ func newCompletionRequest(prompt string, stop []string) gpt.CompletionRequest {
 		Model:            gpt.GPT3TextDavinci003,
 		Prompt:           prompt,
 		Suffix:           "",
-		MaxTokens:        512,
+		MaxTokens:        128,
 		Temperature:      0,
 		TopP:             1,
 		N:                1,
