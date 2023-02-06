@@ -35,11 +35,12 @@ Available actions:
 
 1. Unknown
 2. Execute a command in the terminal
-3. Get an answer that should be searched on the web
-4. Chat
-5. Generate text
-6. Generate an image given a text description
-7. Modify an image given a text description
+3. Perform a calculation
+4. Get an answer that should be searched on the web
+5. Chat
+6. Generate text
+7. Generate an image given a text description
+8. Modify an image given a text description
 
 ### Generating the content
 
@@ -51,6 +52,10 @@ The user input is not recognized. The program should print an error message to s
 
 The user wants to execute a command in the terminal. The program should generate the command and execute it in the
 terminal, asking the user for confirmation before executing it.
+
+#### Action: Perform a calculation
+
+The user wants to perform a calculation. The program should generate the calculation and print the result to stdout.
 
 #### Action: Get an answer that should be searched on the web
 
