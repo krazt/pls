@@ -4,7 +4,7 @@
 terminal.
 Additionally, you can use it to generate and modify text and images, given a text description.
 
-Its name is a short form of "please".
+Its name is a short form of "please". And careful — `pls` acts a little grumpy when asked out-of-scope questions.
 
 You can read more about it in the [design document](docs/design_document.md).
 
@@ -33,19 +33,6 @@ pls "list only hidden files"
 It outputs:
 
 ```text
-Explanation:
-
-ls: list files in the current directory
--a: list all files, including hidden files
-
-|: pipe the output of ls to the input of grep
-
-grep: search for a pattern in the input
--v: invert the match, i.e. only show lines that do not match the pattern
-"^\.": the pattern is a regular expression that matches lines that start with a dot
-
-Command:
-
 ls -a | grep -v "^\."
 
 Run the command? (y=yes, N=no, e=edit)
