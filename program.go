@@ -6,6 +6,7 @@ import (
 	_ "embed"
 	"fmt"
 	"os"
+	"os/exec"
 	"runtime"
 	"strings"
 	"text/template"
@@ -74,13 +75,81 @@ func (p program) run(ctx context.Context) error {
 		return fmt.Errorf("failed to create completion: %w", err)
 	}
 
+	err = p.handleResponse(response)
+	if err != nil {
+		return fmt.Errorf("failed to handle response: %w", err)
+	}
+
+	return nil
+}
+
+func (p program) handleResponse(response gpt.CompletionResponse) error {
 	if len(response.Choices) == 0 {
 		return fmt.Errorf("completion response has no choices")
 	}
 
 	responseText := response.Choices[0].Text
 	responseText = strings.TrimSpace(responseText)
-	fmt.Println(responseText)
+
+	if len(responseText) < 4 {
+		return fmt.Errorf("completion response is too short")
+	}
+
+	switch {
+	case strings.HasPrefix(responseText, "E:"):
+		responseText = strings.TrimPrefix(responseText, "E:")
+		responseText = strings.TrimSpace(responseText)
+
+		fmt.Fprintln(os.Stderr, responseText)
+	case strings.HasPrefix(responseText, "O:"):
+		responseText = strings.TrimPrefix(responseText, "O:")
+		responseText = strings.TrimSpace(responseText)
+
+		err := p.handlePrediction(responseText)
+		if err != nil {
+			return fmt.Errorf("failed to handle prediction: %w", err)
+		}
+	default:
+		return fmt.Errorf("completion response has unknown prefix")
+	}
+
+	return nil
+}
+
+func (p program) handlePrediction(prediction string) error {
+	fmt.Printf("%s\n\n%s\n", prediction, "Run the command? [y/N]")
+
+	var option string
+	_, err := fmt.Scanln(&option)
+	if err != nil {
+		return fmt.Errorf("failed to scan input: %w", err)
+	}
+	option = strings.ToLower(option)
+
+	if option == "y" {
+		err := p.runCommand(prediction)
+		if err != nil {
+			return fmt.Errorf("failed to run command: %w", err)
+		}
+	} else {
+		fmt.Println("The command was not run")
+	}
+
+	return nil
+}
+
+func (p program) runCommand(cmd string) error {
+	c := exec.Command("sh", "-c", cmd)
+	c.Stdout = os.Stdout
+	c.Stderr = os.Stderr
+	c.Stdin = os.Stdin
+
+	fmt.Println()
+
+	err := c.Run()
+	if err != nil {
+		return fmt.Errorf("failed to run command: %w", err)
+	}
 
 	return nil
 }
