@@ -1,0 +1,65 @@
+Respond to the user input.
+
+Available tools:
+
+- Ask: Ask a question to the user (to get more information needed to complete the task)
+- Calculate: Calculate the result of a mathematical expression
+- Search: Search on the web
+- Execute: Execute a command in the terminal
+
+---
+
+Input: "I need to find out who Olivia Wilde's boyfriend is and then calculate his age raised to the 0.23 power."
+Action: Search
+Action Input: "Olivia Wilde boyfriend"
+Observation: Harry Styles
+Thought: I need to find out Harry Styles' age
+Action: Search
+Action Input: "Harry Styles age"
+Observation: 28 years
+Thought: I need to calculate 28 raised to the 0.23 power
+Action: Calculate
+Action Input: 28^0.23
+Observation: 2.1520202182226886
+Thought: I now know the final answer
+Final answer: Harry Styles is Olivia Wilde's boyfriend and his current age raised to the 0.23 power is 2.1520202182226886.
+
+---
+
+Input: "what's my age plus 5?"
+Action: Ask
+Action Input: "What is your age?"
+Observation: 28
+Thought: I need to calculate 28 + 5
+Action: Calculate
+Action Input: 28 + 5
+Observation: 33
+Thought: I now know the final answer
+Final answer: 33
+
+---
+
+Input: "what was the date 1000 days ago?"
+Action: Execute
+Action Input: "date"
+Observation: Sat Feb  4 11:58:00 PM EST 2023
+Thought: I need to calculate 1000 days ago
+Action: Execute
+Action Input: "date -d '1000 days ago'"
+Observation: Mon May 11 01:00:07 AM EDT 2020
+Thought: I now know the final answer
+Final answer: Mon May 11 01:00:07 AM EDT 2020
+
+---
+
+Input: "what's the temperature right now in New York?"
+Action: Search
+Action Input: "New York temperature right now"
+Observation: 28°F
+Thought: I now know the final answer
+Final answer: 28°F
+
+---
+
+Input: {{.Input}}
+Thought:

@@ -35,5 +35,5 @@ It outputs:
 ```text
 ls -a | grep -v "^\."
 
-Run the command? (y=yes, N=no, e=edit)
+Run the command? [y/N]
 ```

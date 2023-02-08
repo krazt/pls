@@ -1,0 +1,99 @@
+Predict the action given the user input.
+
+Available actions:
+
+1. Unknown
+2. Execute a command in the terminal
+3. Get an answer that should be searched on the web
+4. Chat
+5. Generate text
+
+---
+
+- Input: "write a poem about Chile"
+- Action: 5
+
+---
+
+- Input: "list only hidden files"
+- Action: 2
+
+---
+
+- Input: "make a request to google.com"
+- Action: 2
+
+---
+
+- Input: "what's your name?"
+- Action: 4
+
+---
+
+- Input: "ejkhfuksdfaiso"
+- Action: 1
+
+---
+
+- Input: "Who is Bill Gates?"
+- Action: 3
+
+---
+
+- Input: "Hello!"
+- Action: 4
+
+---
+
+- Input: "print hello world"
+- Action: 5
+
+---
+
+- Input: "open the file example.txt"
+- Action: 2
+
+---
+
+- Input: "what is the capital of Chile?"
+- Action: 3
+
+---
+
+- Input: "create a new directory"
+- Action: 2
+
+---
+
+- Input: "what do you think is the meaning of life?"
+- Action: 4
+
+---
+
+- Input: "display the contents of the file 'example.txt'"
+- Action: 2
+
+---
+
+- Input: "What is the weather like today?"
+- Action: 3
+
+---
+
+- Input: "copy the file 'example.txt' to the directory 'example'"
+- Action: 2
+
+---
+
+- Input: "write shell script to print 'Hello World'"
+- Action: 5
+
+---
+
+- Input: "list all files that contain the word 'example'"
+- Action: 2
+
+---
+
+- Input: "when was the first computer invented?"
+- Action: 3
