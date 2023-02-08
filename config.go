@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 type config struct {
@@ -16,10 +17,10 @@ func newConfig(args []string) (config, error) {
 		return config{}, fmt.Errorf("PLS_OPENAI_API_KEY is not set")
 	}
 
-	if len(args) == 0 {
+	input := strings.Join(args, " ")
+	if input == "" {
 		return config{}, fmt.Errorf("an input must be provided")
 	}
-	input := args[0]
 
 	return config{
 		openAPIKey: openAPIKey,
