@@ -1,8 +1,8 @@
 # pls
 
-`pls` is a CLI program that uses AI to tell you the command you are needing to accomplish a certain task from your
-terminal.
-Additionally, you can use it to generate and modify text and images, given a text description.
+`pls` is a CLI program that uses AI (OpenAI's GPT-3.5) to tell you the command you need to run in your terminal,
+given your description in natural language.
+Also, it can run the command for you.
 
 Its name is a short form of "please". And careful — `pls` acts a little grumpy when asked out-of-scope questions.
 
@@ -16,18 +16,10 @@ go install github.com/krazt/pls@latest
 
 ## Usage
 
-```sh
-pls --help
-```
-
-## Examples
-
-### Generate a command given a text description
-
 You run:
 
 ```sh
-pls "list only hidden files"
+pls list only hidden files
 ```
 
 It outputs:
