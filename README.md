@@ -16,13 +16,19 @@ go install github.com/krazt/pls@latest
 
 ## Usage
 
-You run:
+First, export your OpenAI API key:
+
+```sh 
+export PLS_OPENAI_API_KEY="your_api_key"
+```
+
+Then, you run:
 
 ```sh
 pls list only hidden files
 ```
 
-It outputs:
+And it outputs:
 
 ```text
 ls -a | grep -v "^\."
