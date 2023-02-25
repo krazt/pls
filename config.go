@@ -11,9 +11,9 @@ type config struct {
 }
 
 func newConfig(args []string) (config, error) {
-	openAPIKey := os.Getenv("HELP_OPENAI_API_KEY")
+	openAPIKey := os.Getenv("PLS_OPENAI_API_KEY")
 	if openAPIKey == "" {
-		return config{}, fmt.Errorf("HELP_OPENAI_API_KEY is not set")
+		return config{}, fmt.Errorf("PLS_OPENAI_API_KEY is not set")
 	}
 
 	if len(args) == 0 {
